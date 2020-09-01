@@ -9,7 +9,7 @@ server.on('request', (req, res) => {
     const pathName = Url.parse(url).pathname;
     const queryString = Url.parse(url).query;
     console.log(method, pathName, queryString)
-    if (method === 'GET' && pathName === '/') {
+    if (method === 'GET' && (pathName === '/' || /\/[0-9a-z]{8,8}-[0-9a-z]{4,4}-[0-9a-z]{4,4}-[0-9a-z]{4,4}-[0-9a-z]{12,12}/.test(pathName))) {
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         console.log(req.url)
