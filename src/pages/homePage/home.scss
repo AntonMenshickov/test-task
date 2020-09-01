@@ -1,0 +1,48 @@
+#app {
+    font-family: recursive, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}
+h1 {
+    font-weight: 200;
+    text-align: left;
+}
+#searchForm {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr auto;
+    column-gap: 16px;
+    align-items: flex-end;
+    justify-content: space-between;
+    input,
+    button {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 7px 5px;
+        box-sizing: border-box;
+        font-family: recursive, Helvetica, Arial, sans-serif;
+    }
+    .submit-button,
+    .fulltime {
+        width: auto;
+    }
+    
+    .field {
+        width: 100%;
+        padding: 2px;
+        background: rgba(0, 0, 0, 0.06);
+    }
+    .label {
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-grow: 1;
+    }
+    .label-checkbox {
+        padding: 7px 5px;
+        box-sizing: border-box;
+        user-select: none;
+    }
+}

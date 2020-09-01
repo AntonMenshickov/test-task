@@ -1,0 +1,43 @@
+.link-wrapper {
+    a {
+        text-decoration: none;
+    }
+}
+.job-item {
+    display: grid;
+    grid-template-areas: "job-title . job-location" "job-company . job-created";
+    grid-gap: 5px;
+    padding: 10px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    color: #2c3e50;
+    .job-title {
+        grid-area: job-title;
+        text-align: left;
+        font-weight: 700;
+    }
+    .job-location {
+        grid-area: job-location;
+        text-align: right;
+        font-size: 14px;
+    }
+    .job-company {
+        display: flex;
+        flex-direction: row;
+        grid-area: job-company;
+        text-align: left;
+        font-size: 14px;
+    }
+    .job-type {
+        text-align: left;
+        margin-left: 5px;
+        color: #1d9a00;
+        font-size: 14px;
+    }
+    .job-created {
+        grid-area: job-created;
+        text-align: right;
+        font-size: 12px;
+        color: #555;
+    }
+}
