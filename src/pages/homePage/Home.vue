@@ -19,35 +19,60 @@
       </label>
       <button type="submit" class="submit-button">Search</button>
     </form>
-    <JobsList :jobs="jobs"></JobsList>
+    <JobsList :jobs="jobs" :loading="loading"></JobsList>
+    <button class="load-more" @click="loadMore">load more</button>
   </div>
 </template>
 
 <script>
 import JobsList from "../../components/jobsList/JobsList";
 import positions from "../../utils/request";
-import jobs from "../../utils/jobs.json";
-
-positions("python").then(console.log);
 
 export default {
   name: "Home",
   components: {
     JobsList,
   },
+  created() {
+    positions().then((positions) => {
+      this.jobs = positions;
+      this.loading = false;
+    });
+  },
   data() {
     return {
-      jobs,
+      jobs: [],
+      loading: true,
+      description: null,
+      location: null,
+      fulltime: false,
+      page: 0,
     };
   },
   methods: {
-    submitForm: (e) => {
+    submitForm(e) {
       e.preventDefault();
       const fd = new FormData(e.target);
-      console.debug(
-        fd.get("descritpion"),
-        fd.get("location"),
-        fd.get("fulltime")
+      this.description = fd.get("descritpion");
+      this.location = fd.get("location");
+      this.fulltime = !!fd.get("fulltime");
+      this.page = 0;
+      this.loading = true;
+      positions(this.description, this.location, this.fulltime, this.page).then(
+        (positions) => {
+          this.jobs = positions;
+          this.loading = false;
+        }
+      );
+    },
+    loadMore() {
+      this.page++;
+      this.loading = true;
+      positions(this.description, this.location, this.fulltime, this.page).then(
+        (positions) => {
+          this.jobs = positions;
+          this.loading = false;
+        }
       );
     },
   },
