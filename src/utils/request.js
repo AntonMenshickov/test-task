@@ -1,5 +1,5 @@
 export default async function (description, location, fullTime = false, page = 0) {
-    const url = new URL("http://localhost:3000");
+    const url = new URL("http://localhost:3000");  // using local proxy server to access Github api avoid theit cors policity
     const params = { fullTime, page };
     if (description) params.description = description;
     if (location) params.location = location

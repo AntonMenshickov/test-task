@@ -52,7 +52,6 @@ export default {
       if (!date) {
         return null;
       }
-
       return dayjs(date).fromNow();
     },
   },
