@@ -1,5 +1,8 @@
 # test-task
 
+For the API work, you need to run a proxy server that will redirect requests to the GitHub API
+`node proxy/main.js`
+
 ## Project setup
 ```
 npm install
