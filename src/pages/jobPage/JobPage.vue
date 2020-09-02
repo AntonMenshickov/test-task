@@ -39,7 +39,7 @@ export default {
   created() {
     dayjs.extend(relativeTime);
     position(this.$route.params.id).then((position) => {
-      this.job = position[0];
+      this.job = position;
     });
   },
   data() {
